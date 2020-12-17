@@ -30,17 +30,10 @@ print(logo)
 #Hint: Try creating a new function that calls itself if they type 'yes'. 
 
 should_continue = True
-while should_continue == True:
+while should_continue:
   direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
   text = input("Type your message:\n").lower()
   shift = int(input("Type the shift number:\n"))
-  print("Type 'yes' if you want to go again. Otherwise type 'no'.")
-
-  if direction == "yes":
-    should_continue = True
-  elif direction == "no":
-    should_continue = False
-    print("Goodbye")
 
   #TODO-2: What if the user enters a shift that is greater than the number of letters in the alphabet?
   #Try running the program and entering a shift number of 45.
@@ -48,3 +41,11 @@ while should_continue == True:
   shift = shift % 26
 
   caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
+
+  result = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n")
+
+  if result == "yes":
+    should_continue = True
+  elif result == "no":
+    should_continue = False
+    print("Goodbye!")
